@@ -1,0 +1,143 @@
+header {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 15px 20px;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+nav .logo h1 {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 8px 12px;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-links li a:hover {
+  color: #dbe600;
+}
+
+/* Login Container Styles */
+.login-container {
+  background: linear-gradient(135deg, #f4f4f4, #e6f7ff);
+  padding: 60px 30px;
+  text-align: center;
+  max-width: 400px;
+  margin: 120px auto 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.login-container:hover {
+  transform: scale(1.02);
+}
+
+.login-container h2 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border 0.3s ease-in-out;
+}
+
+.login-container input:focus {
+  border-color: #dbe600;
+}
+
+.login-container button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #dbe600, #009688);
+  color: white;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.login-container button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #009688, #dbe600);
+}
+
+.login-container p {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.login-container p a {
+  color: #00e676;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-container p a:hover {
+  text-decoration: underline;
+}
+
+/* Footer Styles */
+footer {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 20px 0;
+  text-align: center;
+  color: white;
+  margin-top: 50px;
+}
+
+footer p {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+footer .footer-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+footer .footer-links li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease-in-out;
+}
+
+footer .footer-links li a:hover {
+  color: #dbe600;
+}
