@@ -1,0 +1,101 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background: #2c3e50;
+    color: white;
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 15px 0;
+    text-align: center;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    transition: background 0.3s;
+}
+
+.sidebar ul li a:hover, .sidebar ul li a.active {
+    background: #1abc9c;
+    border-radius: 5px;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 270px;
+    padding: 20px;
+    width: calc(100% - 270px);
+}
+
+header h1 {
+    text-align: center;
+    color: #333;
+}
+
+/* Stats Section */
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.highlight {
+    background: #1abc9c;
+    color: white;
+}
+
+/* Chart Container */
+.chart-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* AI Insights */
+.ai-insights {
+    background: #ecf0f1;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}

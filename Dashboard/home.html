@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Waste Dashboard</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2>E-Waste Track</h2>
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="recyclers.html">Nearby Recyclers</a></li>
+            <li><a href="news.html">News & Blogs</a></li>
+            <li><a href="cart.html">Recycling Cart</a></li>
+            <li><a href="logout.html">Logout</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header>
+            <h1>E-Waste Dashboard</h1>
+        </header>
+
+        <section class="stats">
+            <div class="card highlight">
+                <h3>Total E-Waste Recycled</h3>
+                <p>50 kg</p>
+            </div>
+            <div class="card highlight">
+                <h3>Monthly Contribution</h3>
+                <p>+10 kg</p>
+            </div>
+            <div class="card highlight">
+                <h3>Eco Score</h3>
+                <p>85%</p>
+            </div>
+        </section>
+
+        <section class="chart-container">
+            <h2>Recycling Trends</h2>
+            <canvas id="ewasteChart"></canvas>
+        </section>
+
+        <section class="ai-insights">
+            <h2>AI-Powered Insights</h2>
+            <p>AI suggests donating old electronics or refurbishing them to extend their life and reduce waste.</p>
+        </section>
+    </main>
+
+    <script src="home.js"></script>
+</body>
+</html>
