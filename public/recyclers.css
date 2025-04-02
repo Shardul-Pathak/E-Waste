@@ -14,7 +14,7 @@ header {
     font-size: 24px;
 }
 
-.cart-container {
+.recyclers-list {
     background: white;
     margin: 20px auto;
     padding: 20px;
@@ -23,16 +23,16 @@ header {
     max-width: 600px;
 }
 
-.cart-container h2 {
+.recyclers-list h2 {
     color: #1abc9c;
 }
 
-#cart-list {
+#recycler-list {
     list-style: none;
     padding: 0;
 }
 
-#cart-list li {
+#recycler-list li {
     background: #ecf0f1;
     padding: 15px;
     margin: 10px 0;
@@ -40,8 +40,44 @@ header {
     transition: 0.3s;
 }
 
-#cart-list li:hover {
+#recycler-list li:hover {
     background: #1abc9c;
     color: white;
     cursor: pointer;
+}
+
+.sidebar {
+    width: 250px;
+    background: #2c3e50;
+    color: white;
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 15px 0;
+    text-align: center;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    transition: background 0.3s;
+}
+
+.sidebar ul li a:hover, .sidebar ul li a.active {
+    background: #1abc9c;
+    border-radius: 5px;
 }

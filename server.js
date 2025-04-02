@@ -7,8 +7,8 @@ const port = 3000;
 // Database connection
 const db = mysql.createConnection({
   host: 'localhost',
-  user: 'user_name',
-  password: 'use_password',
+  user: 'root',
+  password: 'Shardul',
   database: 'user1',
 });
 
@@ -46,6 +46,26 @@ app.get('/about', (req, res) => {
   res.render('about');
 });
 
+app.get('/dashboard', (req, res) => {
+  res.render('dashboard');
+});
+
+app.get('/recyclers', (req, res) => {
+  res.render('recyclers');
+});
+
+app.get('/news', (req, res) => {
+  res.render('news');
+});
+
+app.get('/cart', (req, res) => {
+  res.render('cart');
+});
+
+app.get('/logout', (req, res) => {
+  res.render('logout');
+});
+
 app.post('/login', (req, res) => {
   const { userid, mobile } = req.body;
   console.log('Userid:', userid, 'Mobile:', mobile);
@@ -60,7 +80,7 @@ app.post('/login', (req, res) => {
     console.log('Query results:', results);
 
     if (results.length > 0) {
-      res.redirect('/home');
+      res.redirect('/dashboard');
     } else {
       res.redirect('/login');
     }
@@ -76,7 +96,7 @@ app.post('/signup', (req, res) => {
       console.error(err);
       return res.redirect('/signup?error=1');
     }
-    res.redirect('/home');
+    res.redirect('/dashboard');
   });
 });
 
