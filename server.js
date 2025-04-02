@@ -3,7 +3,7 @@ const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 const app = express();
 const port = 3000;
-
+  
 // Database connection
 const db = mysql.createConnection({
   host: 'localhost',
