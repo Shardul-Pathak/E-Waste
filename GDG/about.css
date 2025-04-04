@@ -1,0 +1,227 @@
+/* Navigation Bar */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px 20px;
+    z-index: 500;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav .logo h1 {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding: 8px 12px;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-links li a:hover {
+    color: #dbe600;
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+    }
+    .nav-links li {
+        margin: 10px 0;
+    }
+}
+
+
+.about {
+    padding: 80px 30px;
+    text-align: center;
+    background: linear-gradient(135deg, #f4f4f4, #e6f7ff);
+    max-width: 900px;
+    margin: 100px auto 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.about:hover {
+    transform: scale(1.02);
+}
+
+.about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.team-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: linear-gradient(135deg, #e0f7fa);
+    padding: 25px;
+    width: 280px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out, background 0.4s ease-in-out;
+    cursor: pointer;
+    text-align: center;
+}
+
+.card:hover {
+    transform: scale(1.1) rotate(2deg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    background: #dbe600;
+}
+
+.card h3 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.services {
+    padding: 60px 30px;
+    text-align: center;
+    background: linear-gradient(135deg, #ffffff, #f8f8f8);
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.services h2 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.contact {
+    background: linear-gradient(135deg, #f4f4f4, #e6f7ff);
+    padding: 60px 30px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact input,
+.contact textarea {
+    padding: 15px;
+    font-size: 1.2rem;
+    width: 100%;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: border 0.3s ease-in-out;
+}
+
+.contact input:focus,
+.contact textarea:focus {
+    border-color: #dbe600;
+}
+
+.contact button {
+    padding: 12px;
+    background: linear-gradient(135deg, #dbe600, #a8db00);
+    color: black;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.contact button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+footer {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 50px;
+    color: white;
+}
+
+footer nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+
+footer .logo h1 {
+    font-size: 1.8rem;
+    color: #00e676;
+}
+
+footer .nav-links {
+    list-style: none;
+    display: flex;
+}
+
+footer .nav-links li {
+    margin-left: 20px;
+}
+
+footer .nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 8px 12px;
+    transition: color 0.3s ease-in-out;
+}
+
+footer .nav-links li a:hover {
+    color: #00e676;
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Waste Management</title>
+    <link rel="stylesheet" href="Landing.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>E-Waste Recycle</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#solutions">Solutions</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="About.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Video Background -->
+    <div class="video-container">
+        <video autoplay muted loop id="background-video">
+            <source src="E-waste.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Recycle Smart, Save the Planet!</h2>
+            <p>Promoting Sustainable E-Waste Management</p>
+            <a href="#solutions" class="cta-button">Learn More</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About E-Waste Management</h2>
+        <p>
+            Electronic waste (E-Waste) is one of the fastest-growing waste streams in the world. Proper management ensures 
+            the safe disposal and recycling of electronics, reducing environmental damage and conserving valuable resources.
+        </p>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="services">
+        <h2>Our Solutions</h2>
+        <div class="service-cards">
+            <div class="card">
+                <h3>Collection Centers</h3>
+                <p>Find nearby e-waste collection points to safely dispose of old electronics.</p>
+            </div>
+            <div class="card">
+                <h3>Recycling Process</h3>
+                <p>Our advanced recycling techniques help extract reusable materials efficiently.</p>
+            </div>
+            <div class="card">
+                <h3>Awareness Campaigns</h3>
+                <p>Join our community programs to learn about responsible e-waste disposal.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <form action="#">
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>GDG Solution Challenge - E-Waste Recycling Initiative</p>
+    </footer>
+    
+    <script src="Landing.js"></script>
+</body>
+</html>
