@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services | E-Waste Recycler</title>
+  <link rel="stylesheet" href="service.css" />
+</head>
+<body>
+  <div class="sidebar">
+    <h2>E-Waste Recycler</h2>
+    <ul>
+      <li><a href="main.html" class="active">Dashboard</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <h1>Our Services</h1>
+
+    <section class="nearby">
+      <h2>Find Nearby Recyclers</h2>
+      <p>Get the nearest e-waste recycling centers based on your location.</p>
+      <button onclick="getNearbyRecyclers()">Find Recyclers</button>
+      <div id="recycler-results" class="result-box"></div>
+    </section>
+
+    <section class="items-we-recycle">
+      <h2>Items We Recycle</h2>
+      <ul>
+        <li>Mobile Phones & Tablets</li>
+        <li>Laptops & Desktops</li>
+        <li>Televisions & Monitors</li>
+        <li>Printers & Scanners</li>
+        <li>Wires, Chargers & Batteries</li>
+        <li>Keyboards, Mice & Accessories</li>
+        <li>Other electronic gadgets</li>
+      </ul>
+    </section>
+  </div>
+
+  <script src="service.js"></script>
+</body>
+</html>
