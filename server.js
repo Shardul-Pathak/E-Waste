@@ -50,21 +50,33 @@ app.get('/dashboard', (req, res) => {
   res.render('dashboard');
 });
 
-app.get('/recyclers', (req, res) => {
-  res.render('recyclers');
+app.get('/service', (req, res) => {
+  res.render('service');
 });
 
-app.get('/news', (req, res) => {
-  res.render('news');
+app.get('/Dashabout', (req, res) => {
+  res.render('Dashabout');
 });
 
-app.get('/cart', (req, res) => {
-  res.render('cart');
+app.get('/contact', (req, res) => {
+  res.render('contact');
 });
 
-app.get('/logout', (req, res) => {
-  res.render('logout');
-});
+// app.get('/recyclers', (req, res) => {
+//   res.render('recyclers');
+// });
+
+// app.get('/news', (req, res) => {
+//   res.render('news');
+// });
+
+// app.get('/cart', (req, res) => {
+//   res.render('cart');
+// });
+
+// app.get('/logout', (req, res) => {
+//   res.render('logout');
+// });
 
 app.post('/login', (req, res) => {
   const { userid, mobile } = req.body;

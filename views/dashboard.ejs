@@ -1,57 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Waste Dashboard</title>
-    <link rel="stylesheet" href="/home.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>E-Waste Dashboard</title>
+  <link rel="stylesheet" href="main.css"/>
 </head>
 <body>
+  <div class="sidebar">
+    <h2>E-Waste Recycler</h2>
+    <ul>
+      <li><a href="/dashboard" class="active">Dashboard</a></li>
+      <li><a href="/service">Services</a></li>
+      <li><a href="/Dashabout">About</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </div>
 
-    <!-- Sidebar -->
-    <aside class="sidebar">
-        <h2>E-Waste Track</h2>
-        <ul>
-            <li><a href="/home" class="active">Home</a></li>
-            <li><a href="/recyclers">Nearby Recyclers</a></li>
-            <li><a href="/news">News & Blogs</a></li>
-            <li><a href="/cart">Recycling Cart</a></li>
-            <li><a href="/logout">Logout</a></li>
-        </ul>
-    </aside>
+  <div class="main-content">
+    <header>
+      <h1>Dashboard Overview</h1>
+    </header>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <header>
-            <h1>E-Waste Dashboard</h1>
-        </header>
+    <section class="stats" id="dashboard">
+      <div class="card">
+        <h3>Total E-Waste Collected</h3>
+        <p id="total-collected">1,230 Kg</p>
+      </div>
+      <div class="card">
+        <h3>Devices Recycled</h3>
+        <p id="devices-recycled">435</p>
+      </div>
+      <div class="card">
+        <h3>Locations Covered</h3>
+        <p id="locations-covered">25 Cities</p>
+      </div>
+    </section>
 
-        <section class="stats">
-            <div class="card highlight">
-                <h3>Total E-Waste Recycled</h3>
-                <p>50 kg</p>
-            </div>
-            <div class="card highlight">
-                <h3>Monthly Contribution</h3>
-                <p>+10 kg</p>
-            </div>
-            <div class="card highlight">
-                <h3>Eco Score</h3>
-                <p>85%</p>
-            </div>
-        </section>
+    <section class="chart-container">
+      <h2>Monthly Recycling Stats</h2>
+      <canvas id="recycleChart" width="400" height="200"></canvas>
+    </section>
 
-        <section class="chart-container">
-            <h2>Recycling Trends</h2>
-            <canvas id="ewasteChart"></canvas>
-        </section>
+    <section class="pie-chart-container">
+      <h2>Waste Categories</h2>
+      <canvas id="categoryChart" width="400" height="200"></canvas>
+    </section>
 
-        <section class="ai-insights">
-            <h2>AI-Powered Insights</h2>
-            <p>AI suggests donating old electronics or refurbishing them to extend their life and reduce waste.</p>
-        </section>
-    </main>
+    <section class="ai-insights">
+      ♻️ AI Insight: Recycling increased by 18% this quarter. Great job!
+    </section>
+  </div>
 
-    <script src="/home.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
