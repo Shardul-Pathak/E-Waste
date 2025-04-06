@@ -1,20 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Recycling Cart</title>
-    <style>
-        .item-row {
-            display: flex;
-            margin-bottom: 10px;
-        }
-        .item-row select, .item-row input {
-            margin-right: 10px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>E-Waste Dashboard</title>
+  <link rel="stylesheet" href="/cart.css"/>
 </head>
 <body>
-    <h1>Recycling Cart</h1>
-    <form id="recyclingForm" action="/cart" method="post">
+  <div class="sidebar">
+    <h2>E-Waste Recycler</h2>
+    <ul>
+      <li><a href="/dashboard" class="active">Dashboard</a></li>
+      <li><a href="/service">Services</a></li>
+      <li><a href="/cart">Cart</a></li>
+      <li><a href="/Dashabout">About</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <header>
+        <h1>Add Items to Cart</h1>
+    </header>
+    <form id="cartForm">
         <label for="street">Street:</label>
         <input type="text" id="street" name="street" required><br><br>
 
@@ -25,13 +33,13 @@
             <div class="item-row">
                 <select name="item[]" required>
                     <option value="">Select Item</option>
-                    <option value="Plastic Bottles">Plastic Bottles</option>
-                    <option value="Aluminum Cans">Aluminum Cans</option>
-                    <option value="Cardboard Boxes">Cardboard Boxes</option>
-                    <option value="Glass Jars">Glass Jars</option>
-                    <option value="Newspapers">Newspapers</option>
-                    <option value="Magazines">Magazines</option>
-                    <option value="Electronics">Electronics</option>
+                    <option value="Mobile">Mobile</option>
+                    <option value="Tablets">Tablets</option>
+                    <option value="Laptops">Laptops</option>
+                    <option value="Headphones">Headphones</option>
+                    <option value="Smart Watches">Smart Watches</option>
+                    <option value="Smart TVs">Smart TVs</option>
+                    <option value="Other">Other</option>
                 </select>
                 <input type="number" name="quantity[]" placeholder="Quantity" min="1" required>
             </div>
@@ -39,9 +47,9 @@
 
         <button type="button" id="addItemButton">Add Item</button><br><br>
 
-        <button type="submit">Submit Cart</button>
+        <button type="submit">Add to Cart</button>
     </form>
-
-    <script src="/cart.js"></script>
+  </div>
+  <script src="cart.js"></script>
 </body>
 </html>

@@ -1,99 +1,153 @@
-/* Global Styles */
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #0d0d0d;
-    color: #ffffff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-  }
-  
-  /* Container */
-  .container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 40px 20px;
-  }
-  
-  /* Header */
-  header {
-    text-align: center;
-    margin-bottom: 40px;
-  }
-  
-  header h1 {
-    font-size: 3rem;
-    color: #00e676;
-    text-shadow: 0 0 10px #00e676, 0 0 20px #00ff9c;
-  }
-  
-  header p {
-    color: #ccc;
-    font-size: 1.2rem;
-  }
-  
-  /* Sections */
-  .section {
-    background-color: #111;
-    padding: 30px;
-    margin-bottom: 30px;
-    border-left: 5px solid #00e676;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0, 255, 127, 0.1);
-    transition: transform 0.3s ease;
-  }
-  
-  .section:hover {
-    transform: scale(1.02);
-  }
-  
-  .section h2 {
-    color: #00e676;
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-    text-shadow: 0 0 8px #00e676;
-  }
-  
-  .section p {
-    color: #e0e0e0;
-  }
-  
-  .section ul {
-    margin-top: 10px;
-    padding-left: 20px;
-  }
-  
-  .section ul li {
-    margin-bottom: 10px;
-  }
-  
-  /* Highlighted Vision Section */
-  .section.highlight {
-    background-color: #00e676;
-    color: #0d0d0d;
-    font-weight: bold;
-    text-align: center;
-    border-left: none;
-    box-shadow: 0 0 20px #00e676, 0 0 30px #00ff9c;
-  }
-  
-  /* Footer */
-  footer {
-    text-align: center;
-    padding: 20px;
-    color: #888;
-    font-size: 0.9rem;
-    border-top: 1px solid #333;
-    margin-top: 50px;
-  }
-  
-  .section {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease-out;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
 }
 
-.section.visible {
-    opacity: 1;
-    transform: translateY(0);
+body {
+  background-color: #0d0d0d;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 230px;
+  height: 100vh;
+  background-color: #111;
+  color: white;
+  position: fixed;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 40px #ffffff;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 20px 0;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+  background-color: #00e676;
+  color: #0d0d0d;
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 260px;
+  padding: 20px;
+}
+
+header h1 {
+  color: #ffffff;
+}
+
+#cartForm {
+  margin: 20px;
+  padding: 20px;
+  background: #1a1a2e;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 255, 127, 0.3);
+}
+
+#cartForm label {
+  display: block;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+#cartForm input[type="text"] {
+  width: 300px; /* Doubled width for street */
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  background-color: #111;
+  color: #fff;
+}
+
+#cartForm input {
+  outline: none;
+  border-color: #00e676;
+}
+
+#cartForm input[type="number"],
+#cartForm select {
+  width: 150px;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  background-color: #111;
+  color: #fff;
+}
+
+#cartForm button {
+  background-color: #00e676;
+  color: #0d0d0d;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#cartForm button:hover {
+  background-color: #00cc66;
+}
+
+#itemsContainer {
+  margin-bottom: 15px;
+}
+
+.item-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.item-row select,
+.item-row input[type="number"] {
+  width: 100px;
+  flex: none;
+  margin-right: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .item-row {
+      flex-direction: column;
+      align-items: stretch;
+  }
+
+  .item-row select,
+  .item-row input[type="number"] {
+      margin-right: 0;
+      margin-bottom: 10px;
+      width: 150px;
+  }
+
+  #cartForm input[type="text"] {
+      width: 100%;
+  }
 }

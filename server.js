@@ -8,8 +8,8 @@ const port = 3000;
 // Database connection pools
 const userDbPool = mysql.createPool({
   host: 'localhost',
-  user: 'username',
-  password: 'password',
+  user: 'root',
+  password: 'Shardul',
   database: 'user1',
   waitForConnections: true,
   connectionLimit: 10,
@@ -45,6 +45,7 @@ checkPoolConnection(cartDbPool, 'cartDatabase');
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
@@ -123,67 +124,60 @@ app.post('/signup', async (req, res) => {
 });
 
 app.post('/cart', async (req, res) => {
-  try {
-    const connection = await cartDbPool.getConnection();
+    try {
+        const connection = await cartDbPool.getConnection();
 
-    const street = req.body.street;
-    const zip = req.body.zip;
-    const items = req.body['item[]'];
-    const quantities = req.body['quantity[]'];
+        const street = req.body.street;
+        const zip = req.body.zip;
+        const items = req.body['item[]'];
+        const quantities = req.body['quantity[]'];
 
-    console.log('Request Body:', req.body); // Debugging
-
-    if (!street || !zip) {
-      return res.status(400).send('Street and zip are required.');
-    }
-
-    const [addressResult] = await connection.execute(
-        'INSERT INTO addresses (street, zip) VALUES (?, ?)',
-        [street, zip]
-    );
-
-    const addressId = addressResult.insertId;
-    console.log('Inserted address ID:', addressId); // Debugging
-
-    if (Array.isArray(items) && Array.isArray(quantities) && items.length === quantities.length) {
-
-      for (let i = 0; i < items.length; i++) {
-        const item = items[i];
-        const quantity = quantities[i];
-
-        if (!item || !quantity || typeof quantity !== 'number' || quantity < 1) {
-          return res.status(400).send('Invalid item or quantity at index ' + i + '.');
+        if (!street || !zip || !items || !quantities) {
+            return res.status(400).json({ message: 'Missing required fields.' });
         }
 
-        console.log('Inserting item:', item, 'quantity:', quantity, 'addressId:', addressId); // Debugging
-
-        await connection.execute(
-          'INSERT INTO items (address_id, item, quantity) VALUES (?, ?, ?)',
-          [addressId, item, quantity]
+        const [addressResult] = await connection.execute(
+            'INSERT INTO addresses (street, zip) VALUES (?, ?)',
+            [street, zip]
         );
-      }
-      res.send('Cart items added successfully.');
-    } else if (items && quantities && typeof items === 'string' && typeof quantities === 'string') {
-        if (!items || !quantities || typeof parseInt(quantities) !== 'number' || parseInt(quantities) < 1) {
-          return res.status(400).send('Invalid item or quantity.');
+
+        const addressId = addressResult.insertId;
+
+        if (Array.isArray(items) && Array.isArray(quantities) && items.length === quantities.length) {
+            for (let i = 0; i < items.length; i++) {
+                const item = items[i];
+                let quantity = parseInt(quantities[i]);
+
+                if (!item || !quantity || typeof quantity !== 'number' || quantity < 1) {
+                    return res.status(400).json({ message: 'Invalid item or quantity at index ' + i + '.' });
+                }
+
+                await connection.execute(
+                    'INSERT INTO items (address_id, item, quantity) VALUES (?, ?, ?)',
+                    [addressId, item, quantity]
+                );
+            }
+            res.json({ message: 'Cart items added successfully.' });
+        } else if (typeof items === 'string' && typeof quantities === 'string') {
+            let quantity = parseInt(quantities);
+            if (!items || !quantity || typeof quantity !== 'number' || quantity < 1) {
+                return res.status(400).json({ message: 'Invalid item or quantity.' });
+            }
+
+            await connection.execute(
+                'INSERT INTO items (address_id, item, quantity) VALUES (?, ?, ?)',
+                [addressId, items, quantity]
+            );
+            res.json({ message: 'Cart items added successfully.' });
+        } else {
+            res.status(400).json({ message: 'Invalid item or quantity data.' });
         }
 
-        console.log('Inserting item:', items, 'quantity:', quantities, 'addressId:', addressId); // Debugging
-
-        await connection.execute(
-          'INSERT INTO items (address_id, item, quantity) VALUES (?, ?, ?)',
-          [addressId, items, quantities]
-        );
-        res.send('Cart items added successfully.');
-    }else {
-      res.status(400).send('Invalid item or quantity data.');
+        connection.release();
+    } catch (err) {
+        console.error('Error: ' + err.stack);
+        res.status(500).json({ message: 'An error occurred.' });
     }
-
-    connection.release();
-  } catch (err) {
-    console.error('Error: ' + err.stack);
-    res.status(500).send('An error occurred.');
-  }
 });
 
 app.listen(port, () => {
