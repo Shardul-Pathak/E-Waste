@@ -182,4 +182,6 @@ app.post('/cart', async (req, res) => {
     }
 });
 
-module.exports = app;
+app.listen(port, () => {
+     console.log(`Server is running on port ${port}`);
+});
