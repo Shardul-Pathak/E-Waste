@@ -1,15 +1,17 @@
 const express = require('express');
-const mysql = require('mysql2/promise'); // Use promise-based mysql2
+const mysql = require('mysql2/promise'); 
 const bodyParser = require('body-parser');
-
+require('dotenv').config();
 const app = express();
-const port = 3000;
+
+const databaseUsername = process.env.DATABASE_USERNAME;
+const databasePassword = process.env.DATABASE_PASSWORD;
 
 // Database connection pools
 const userDbPool = mysql.createPool({
   host: 'localhost',
-  user: 'root',
-  password: 'Shardul',
+  user: databaseUsername,
+  password: databasePassword,
   database: 'user1',
   waitForConnections: true,
   connectionLimit: 10,
@@ -18,8 +20,8 @@ const userDbPool = mysql.createPool({
 
 const cartDbPool = mysql.createPool({
   host: 'localhost',
-  user: 'root',
-  password: 'Shardul',
+  user: databaseUsername,
+  password: databasePassword,
   database: 'cartDatabase',
   waitForConnections: true,
   connectionLimit: 10,
@@ -180,6 +182,4 @@ app.post('/cart', async (req, res) => {
     }
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+module.exports = app;
