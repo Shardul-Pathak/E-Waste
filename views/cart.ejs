@@ -1,33 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recycling Cart</title>
-    <link rel="stylesheet" href="/cart.css">
+    <style>
+        .item-row {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        .item-row select, .item-row input {
+            margin-right: 10px;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Recycling Cart</h1>
-    </header>
-    <aside class="sidebar">
-        <h2>E-Waste Track</h2>
-        <ul>
-            <li><a href="/home" class="active">Home</a></li>
-            <li><a href="/recyclers">Nearby Recyclers</a></li>
-            <li><a href="/news">News & Blogs</a></li>
-            <li><a href="/cart">Recycling Cart</a></li>
-            <li><a href="/logout">Logout</a></li>
-        </ul>
-    </aside>
-    <main>
-        <section class="cart-container">
-            <h2>Your Items for Recycling</h2>
-            <ul id="cart-list">
-                <!-- Recyclable items will be dynamically added here -->
-            </ul>
-        </section>
-    </main>
+    <h1>Recycling Cart</h1>
+    <form id="recyclingForm" action="/cart" method="post">
+        <label for="street">Street:</label>
+        <input type="text" id="street" name="street" required><br><br>
+
+        <label for="zip">Zip:</label>
+        <input type="text" id="zip" name="zip" required><br><br>
+
+        <div id="itemsContainer">
+            <div class="item-row">
+                <select name="item[]" required>
+                    <option value="">Select Item</option>
+                    <option value="Plastic Bottles">Plastic Bottles</option>
+                    <option value="Aluminum Cans">Aluminum Cans</option>
+                    <option value="Cardboard Boxes">Cardboard Boxes</option>
+                    <option value="Glass Jars">Glass Jars</option>
+                    <option value="Newspapers">Newspapers</option>
+                    <option value="Magazines">Magazines</option>
+                    <option value="Electronics">Electronics</option>
+                </select>
+                <input type="number" name="quantity[]" placeholder="Quantity" min="1" required>
+            </div>
+        </div>
+
+        <button type="button" id="addItemButton">Add Item</button><br><br>
+
+        <button type="submit">Submit Cart</button>
+    </form>
+
     <script src="/cart.js"></script>
 </body>
 </html>

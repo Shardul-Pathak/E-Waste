@@ -3,36 +3,40 @@ document.addEventListener("DOMContentLoaded", () => {
     const locationResult = document.getElementById("location-result");
   
     findBtn.addEventListener("click", () => {
-      locationResult.innerHTML = "Finding nearby recyclers... 🔍";
-  
-      // Simulate location fetch delay
-      setTimeout(() => {
-        // Mock data — you can integrate Google Maps or Geolocation API here
-        const nearbyRecyclers = [
-          {
-            name: "EcoGreen Recycle Center",
-            address: "Sector 12, Green Park, Mumbai",
-          },
-          {
-            name: "Urban E-Waste Solutions",
-            address: "Plot 44, Tech Zone, Pune",
-          },
-          {
-            name: "RecycleX Hub",
-            address: "Gandhi Nagar, Hyderabad",
-          },
-        ];
-  
-        locationResult.innerHTML = `<strong>Nearby Recyclers:</strong><br><br>`;
-        nearbyRecyclers.forEach(recycler => {
-          locationResult.innerHTML += `
-            <div style="margin-bottom: 10px;">
-              🏢 <strong>${recycler.name}</strong><br>
-              📍 ${recycler.address}
-            </div>
-          `;
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+          var lat = position.coords.latitude;
+          var lon = position.coords.longitude;
+          redirectToGoogleMaps(lat, lon, "E-waste recycling plant");
+        }, () => {
+          locationResult.textContent = "Unable to retrieve your location.";
         });
-      }, 1000); // 1 second delay
+      } else {
+        locationResult.textContent = "Geolocation is not supported by this browser.";
+      }
     });
   });
+
+  function redirectToGoogleMaps(latitude, longitude, placeName) {
+    // Construct the Google Maps URL
+    let url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(placeName)}&query_place_id=${latitude},${longitude}`;
+  
+    // Open the URL in a new tab or window
+    window.open(url, '_blank');
+  }
+  
+  // Example usage:
+  // redirectToGoogleMaps(34.0522, -118.2437, "Recycling Plant Name");
+  
+  function redirectToGoogleMapsWithAddress(address) {
+      let url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+      window.open(url, '_blank')
+  }
+  
+  //redirectToGoogleMapsWithAddress("1600 Amphitheatre Parkway, Mountain View, CA");
+  
+  function redirectToGoogleMapsDirections(originLat, originLng, destinationLat, destinationLng){
+      let url = `https://www.google.com/maps/dir/?api=1&origin=${originLat},${originLng}&destination=${destinationLat},${destinationLng}`
+      window.open(url, '_blank');
+  }
   
